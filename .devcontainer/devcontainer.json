@@ -1,6 +1,6 @@
 {
 	"name": "Ubuntu",
-	"image": "ubuntu:jammy",
+	"image": "nvidia/cuda:11.1-base-ubuntu20.04",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"configureZshAsDefaultShell": true
