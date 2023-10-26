@@ -1,24 +1,26 @@
 {
 	"name": "Ubuntu",
-	"image": "jupyter/r-notebook:notebook-6.5.4",
+	"image": "ubuntu:jammy",
 	"features": {
-		"ghcr.io/devcontainers/features/common-utils:2": {},
-		"ghcr.io/eitsupi/devcontainer-features/julia:0": {}
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"configureZshAsDefaultShell": true
+		},
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.8.18",
+			"installJupyterlab": true
+		}
 	},
-	"postCreateCommand": "Rscript -e \"install.packages('languageserver', repos='http://cran.us.r-project.org')\"",
+	"postCreateCommand": "pip install -r ./.devcontainer/requirements.txt",
 	"service": "texlive-ja",
 	"shutdownAction": "stopCompose",
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"ms-python.python",
-				"REditorSupport.r",
 				"ms-toolsai.jupyter",
-				"ms-python.autopep8",
-				"julialang.language-julia"
+				"ms-python.autopep8"
 			],
 			"settings": {
-				"terminal.integrated.shell": "/bin/bash",
 				"editor.codeActionsOnSave": {
 					"source.organizeImports.python": true
 				},
