@@ -1,6 +1,6 @@
 {
 	"name": "Ubuntu",
-	"image": "nvidia/cuda:11.1-base-ubuntu20.04",
+	"image": "nvidia/cuda:12.2.2-base-ubuntu22.04",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"configureZshAsDefaultShell": true
@@ -13,6 +13,9 @@
 	"postCreateCommand": "pip install -r ./.devcontainer/requirements.txt",
 	"service": "texlive-ja",
 	"shutdownAction": "stopCompose",
+	"runArgs": [
+		"--gpus", "all"
+	],
 	"customizations": {
 		"vscode": {
 			"extensions": [
